@@ -1,11 +1,25 @@
-{# templates/wild/show.html.twig #}
+{# templates/wild/category.html.twig #}
 {% extends 'base.html.twig' %}
 {% block title %}{% endblock %}
 
 {% block body %}
-
-    {% for in %}
-        <p>{{  }}</p>
-    {% endfor %}
-
+    <h1>{{category.name}}</h1>
+    <table>
+        <thead>
+        <tr>
+            <th>id</th>
+            <th>titre</th>
+            <th>résumé</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for program in programs %}
+            <tr>
+                <td>{{ program.id }} </td>
+                <td>{{ program.title }} </td>
+                <td>{{ program.summary }} </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
 {% endblock %}

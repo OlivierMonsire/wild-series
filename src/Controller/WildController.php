@@ -2,6 +2,7 @@
 // src/Controller/WildController.php
 namespace App\Controller;
 
+use App\Entity\Category;
 use App\Entity\Program;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -68,11 +69,56 @@ class WildController extends AbstractController
     /**
      * Show an array with three series of a category
      *
+     * @param string $categoryName
      * @Route("/category/{categoryName}", name="show_category")
      * @return Response
      */
-    public function showByCategory(string $categoryName)
+    public function showByCategory(string $categoryName): Response
     {
+        if (!$categoryName) {
+            throw $this->createNotFoundException(
+                'No category found.'
+            );
+        }
+        $repository = $this->getDoctrine()
+            ->getManager()
+            ->getRepository(Category::class);
 
+        $category = $repository->findOneByName($categoryName);
+        $id = $category->getId();
+        $repository = $this->getDoctrine()
+            ->getManager()
+            ->getRepository(Program::class);
+        $programs = $repository->findByCategory(($id),
+        array('id' => 'desc'),
+        3, 0);
+        return $this->render(
+            'wild/category.html.twig', [
+            'categoryName' => $categoryName,
+            'category' => $category,
+            'programs' => $programs
+        ]);
     }
 }
+
+/**public function showByCategory(string $categoryName): Response
+ * {
+ * if (!$categoryName) {
+ * throw $this->createNotFoundException(
+ * 'No category found.'
+ * );
+ * }
+ * $repository = $this->getDoctrine()
+ * ->getManager()
+ * ->getRepository(Program::class);
+ *
+ * $programs = $repository->findByCategory(('1'),
+ * array('id' => 'desc'),
+ * 3,
+ * 0);
+ * return $this->render(
+ * 'wild/category.html.twig', [
+ * 'categoryName' => $categoryName,
+ * 'programs' => $programs,
+ * ]);
+ * } */
