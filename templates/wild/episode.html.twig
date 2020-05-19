@@ -1,0 +1,19 @@
+{# templates/wild/show.html.twig #}
+{% extends 'base.html.twig' %}
+{% block title %}{% endblock %}
+
+{% block body %}
+    <div>
+
+        <h2>{{ program.title }} - Saison {{ season.number }}</h2>
+        <h3>Episode {{ episode.number }} - {{ episode.title }}</h3>
+
+        <p>{{ episode.synopsis }}</p>
+    </div>
+
+    <a class="btn btn-primary" href="./">Retour à la fiche saison</a>
+    <a class="btn btn-primary" href="../">Retour à la fiche programme</a>
+
+
+
+{% endblock %}

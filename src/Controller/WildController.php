@@ -142,7 +142,7 @@ class WildController extends AbstractController
     }
 
     /**
-     * Show an array with three series of a category
+     * Show an array with three series of a season
      *
      * @param integer $seasonNb
      * @Route("/program/{programName}/{seasonNb}", name="show_season")
@@ -169,31 +169,28 @@ class WildController extends AbstractController
         ]);
     }
 
-}
+    /**
+     * Show an array with three series of an episode
+     *
+     * @param Episode $episode
+     * @return Response
+     * @Route("/program/{programName}/{seasonNb}/{id}", name="show_episode")
+     */
+    public function showByEpisode(Episode $episode): Response
+    {
+        $repository = $this->getDoctrine()
+            ->getManager()
+            ->getRepository(Episode::class);
+        $episode = $repository->findOneBy(['id' => ($episode)]);
+        $season = $episode-> getseason();
+        $program = $season->getprogram();
+        return $this->render(
+            'wild/episode.html.twig', [
+            'program' => $program,
+            'season' => $season,
+            'episode' => $episode,
+        ]);
+    }
 
-/**
- *     public function showBySeason(int $seasonNb): Response
-{
-if (!$seasonNb) {
-throw $this->createNotFoundException(
-'This season doesn\'t exist!'
-);
 }
-$repository = $this->getDoctrine()
-->getManager()
-->getRepository(Season::class);
-$season = $repository->findOneBy(['number' => ($seasonNb)]);
-$repository = $this->getDoctrine()
-->getManager()
-->getRepository(Episode::class);
-$id = $season->getId();
-$episodes = $repository->findBySeason(($id),
-array('id' => 'asc'));
-return $this->render(
-'wild/season.html.twig', [
-'season' => $season,
-'episodes' => $episodes,
-]);
-}
- */
 
