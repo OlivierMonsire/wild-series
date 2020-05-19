@@ -10,7 +10,7 @@
                 <h5 class="card-title">{{ episode.title }}</h5>
                 <h6 class="card-subtitle mb-2 text-muted">Episode {{ episode.number }}</h6>
                 <p class="card-text">{{ episode.synopsis }}</p>
-                <a class="btn btn-secondary" href="./{{ season.number }}/{{ episode.id }}">En savoir plus</a>
+                <a class="btn btn-secondary" href="./episode/{{ episode.id }}">En savoir plus</a>
             </div>
         </div>
     {% endfor %}

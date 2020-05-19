@@ -174,7 +174,7 @@ class WildController extends AbstractController
      *
      * @param Episode $episode
      * @return Response
-     * @Route("/program/{programName}/{seasonNb}/{id}", name="show_episode")
+     * @Route("/program/{programName}/episode/{id}", name="show_episode")
      */
     public function showByEpisode(Episode $episode): Response
     {
