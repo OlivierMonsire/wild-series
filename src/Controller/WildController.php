@@ -3,7 +3,9 @@
 namespace App\Controller;
 
 use App\Entity\Category;
+use App\Entity\Episode;
 use App\Entity\Program;
+use App\Entity\Season;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -75,11 +77,6 @@ class WildController extends AbstractController
      */
     public function showByCategory(string $categoryName): Response
     {
-        if (!$categoryName) {
-            throw $this->createNotFoundException(
-                'No category found.'
-            );
-        }
         $repository = $this->getDoctrine()
             ->getManager()
             ->getRepository(Category::class);
@@ -90,8 +87,14 @@ class WildController extends AbstractController
             ->getManager()
             ->getRepository(Program::class);
         $programs = $repository->findByCategory(($id),
-        array('id' => 'desc'),
-        3, 0);
+            array('id' => 'desc'),
+            3, 0);
+
+        if (!$categoryName) {
+            throw $this->createNotFoundException(
+                'No category found.'
+            );
+        }
         return $this->render(
             'wild/category.html.twig', [
             'categoryName' => $categoryName,
@@ -99,26 +102,98 @@ class WildController extends AbstractController
             'programs' => $programs
         ]);
     }
+
+    /**
+     * Show an array with three series of a category
+     *
+     * @param string $programName
+     * @Route("/program/{programName}", name="show_program")
+     * @return Response
+     */
+    public function showByProgram(string $programName): Response
+    {
+        if (!$programName) {
+            throw $this->createNotFoundException(
+                'No category found.'
+            );
+        }
+        $slugName = $programName;
+        $programName = preg_replace(
+            '/-/',
+            ' ', ucwords(trim(strip_tags($programName)), "-")
+        );
+
+        $repository = $this->getDoctrine()
+            ->getManager()
+            ->getRepository(Program::class);
+        $program = $repository->findOneBy(['title' => mb_strtolower($programName)]);
+        $repository = $this->getDoctrine()
+            ->getManager()
+            ->getRepository(Season::class);
+        $id = $program->getId();
+        $seasons = $repository->findByProgram(($id),
+            array('id' => 'asc'));
+        return $this->render(
+            'wild/program.html.twig', [
+            'seasons' => $seasons,
+            'program' => $program,
+            'slugName' => $slugName
+        ]);
+    }
+
+    /**
+     * Show an array with three series of a category
+     *
+     * @param integer $seasonNb
+     * @Route("/program/{programName}/{seasonNb}", name="show_season")
+     * @return Response
+     */
+    public function showBySeason(int $seasonNb): Response
+    {
+        if (!$seasonNb) {
+            throw $this->createNotFoundException(
+                'This season doesn\'t exist!'
+            );
+        }
+        $repository = $this->getDoctrine()
+            ->getManager()
+            ->getRepository(Season::class);
+        $season = $repository->findOneBy(['number' => ($seasonNb)]);
+        $program = $season-> getProgram();
+        $episodes = $season-> getEpisodes();
+        return $this->render(
+            'wild/season.html.twig', [
+            'program' => $program,
+            'season' => $season,
+            'episodes' => $episodes,
+        ]);
+    }
+
 }
 
-/**public function showByCategory(string $categoryName): Response
- * {
- * if (!$categoryName) {
- * throw $this->createNotFoundException(
- * 'No category found.'
- * );
- * }
- * $repository = $this->getDoctrine()
- * ->getManager()
- * ->getRepository(Program::class);
- *
- * $programs = $repository->findByCategory(('1'),
- * array('id' => 'desc'),
- * 3,
- * 0);
- * return $this->render(
- * 'wild/category.html.twig', [
- * 'categoryName' => $categoryName,
- * 'programs' => $programs,
- * ]);
- * } */
+/**
+ *     public function showBySeason(int $seasonNb): Response
+{
+if (!$seasonNb) {
+throw $this->createNotFoundException(
+'This season doesn\'t exist!'
+);
+}
+$repository = $this->getDoctrine()
+->getManager()
+->getRepository(Season::class);
+$season = $repository->findOneBy(['number' => ($seasonNb)]);
+$repository = $this->getDoctrine()
+->getManager()
+->getRepository(Episode::class);
+$id = $season->getId();
+$episodes = $repository->findBySeason(($id),
+array('id' => 'asc'));
+return $this->render(
+'wild/season.html.twig', [
+'season' => $season,
+'episodes' => $episodes,
+]);
+}
+ */
+
