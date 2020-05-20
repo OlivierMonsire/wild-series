@@ -6,9 +6,11 @@ use App\Entity\Category;
 use App\Entity\Episode;
 use App\Entity\Program;
 use App\Entity\Season;
+use App\Form\CategoryType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\HttpFoundation\Request;
 
 class WildController extends AbstractController
 {
@@ -16,13 +18,26 @@ class WildController extends AbstractController
      * Show all rows from Program’s entity
      *
      * @Route("/wild", name="wild_index")
+     * @param Request $request
      * @return Response A response instance
      */
-    public function index(): Response
+    public function index(Request $request): Response
     {
         $programs = $this->getDoctrine()
             ->getRepository(Program::class)
             ->findAll();
+
+        $category = new Category();
+        $form = $this->createForm(CategoryType::class, $category);
+        $form->HandleRequest($request);
+
+        if ($form->isSubmitted()) {
+            $data = $form->getData();
+            $category = $this->getDoctrine()->getManager();
+            $category->persist($data);
+            $category->flush();
+
+        }
 
         if (!$programs) {
             throw $this->createNotFoundException(
@@ -31,8 +46,10 @@ class WildController extends AbstractController
         }
 
         return $this->render(
-            'wild/index.html.twig',
-            ['programs' => $programs]
+            'wild/index.html.twig', [
+                'programs' => $programs,
+                'form' => $form->createView(),
+            ]
         );
     }
 

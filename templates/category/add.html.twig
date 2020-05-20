@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Wild Series - Categorie {% endblock %}
+
+{% block body %}
+
+    {{ form_start(form) }}
+    {{ form_row(form.name) }}
+    <button class="btn">{{ button_label|default('Save') }}</button>
+    {{ form_end(form) }}
+    <a href="{{ path('category_index') }}">Retour</a>
+{% endblock %}
