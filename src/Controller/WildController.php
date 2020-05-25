@@ -178,10 +178,6 @@ class WildController extends AbstractController
      */
     public function showByEpisode(Episode $episode): Response
     {
-        $repository = $this->getDoctrine()
-            ->getManager()
-            ->getRepository(Episode::class);
-        $episode = $repository->findOneBy(['id' => ($episode)]);
         $season = $episode-> getseason();
         $program = $season->getprogram();
         return $this->render(
