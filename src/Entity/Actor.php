@@ -39,6 +39,14 @@ class Actor
         return $this->id;
     }
 
+    public function getSelector() : string
+
+    {
+
+        return $this->getId() . ' - ' . $this->getName();
+
+    }
+
     public function getName(): ?string
     {
         return $this->name;
