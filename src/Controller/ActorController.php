@@ -57,7 +57,7 @@ class ActorController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="actor_show", methods={"GET"})
+     * @Route("/{slug}", name="actor_show", methods={"GET"})
      * @param Actor $actor
      * @return Response
      */
@@ -69,7 +69,7 @@ class ActorController extends AbstractController
     }
 
     /**
-     * @Route("/{id}/edit", name="actor_edit", methods={"GET","POST"})
+     * @Route("/{slug}/edit", name="actor_edit", methods={"GET","POST"})
      * @param Request $request
      * @param Actor $actor
      * @param Slugify $slugify
@@ -95,7 +95,7 @@ class ActorController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="actor_delete", methods={"DELETE"})
+     * @Route("/{slug}", name="actor_delete", methods={"DELETE"})
      * @param Request $request
      * @param Actor $actor
      * @return Response

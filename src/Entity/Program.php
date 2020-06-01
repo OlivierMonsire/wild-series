@@ -77,6 +77,14 @@ class Program
         return $this->id;
     }
 
+    public function getSelector() : string
+
+    {
+
+        return $this->getId() . ' - ' . $this->getTitle();
+
+    }
+
     public function getTitle(): ?string
     {
         return $this->title;

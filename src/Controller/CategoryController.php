@@ -57,7 +57,7 @@ class CategoryController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="category_show", methods={"GET"})
+     * @Route("/{slug}", name="category_show", methods={"GET"})
      * @param Category $category
      * @return Response
      */
@@ -69,7 +69,7 @@ class CategoryController extends AbstractController
     }
 
     /**
-     * @Route("/{id}/edit", name="category_edit", methods={"GET","POST"})
+     * @Route("/{slug}/edit", name="category_edit", methods={"GET","POST"})
      * @param Request $request
      * @param Category $category
      * @param Slugify $slugify
@@ -95,7 +95,7 @@ class CategoryController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="category_delete", methods={"DELETE"})
+     * @Route("/{slug}", name="category_delete", methods={"DELETE"})
      * @param Request $request
      * @param Category $category
      * @return Response
