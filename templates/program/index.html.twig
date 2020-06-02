@@ -21,10 +21,10 @@
                 <td>{{ program.id }}</td>
                 <td>{{ program.title }}</td>
                 <td>{{ program.summary }}</td>
-                <td>{{ program.poster }}</td>
+                <td><img src="{{ program.poster }}" width="80%"></td>
                 <td>
-                    <a href="{{ path('program_show', {'slug': program.slug}) }}">show</a>
-                    <a href="{{ path('program_edit', {'slug': program.slug}) }}">edit</a>
+                    <a class="btn btn-secondary" href="{{ path('program_show', {'slug': program.slug}) }}">show</a>
+                    <a class="btn btn-secondary" href="{{ path('program_edit', {'slug': program.slug}) }}">edit</a>
                 </td>
             </tr>
         {% else %}
@@ -35,5 +35,5 @@
         </tbody>
     </table>
 
-    <a href="{{ path('program_new') }}">Create new</a>
+    <a class="btn btn-secondary" href="{{ path('program_new') }}">Create new</a>
 {% endblock %}
