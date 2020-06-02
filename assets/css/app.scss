@@ -1,11 +1,30 @@
+@import "~bootstrap/scss/bootstrap";
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300&family=Special+Elite&display=swap');
+$font-title: 'Special Elite', cursive;
+$font-text: 'Lato', sans-serif;
+
 $theme-colors: (
         "primary": #F4D4D3,
         "secondary": #94D4D3,
         "light": #d5e3e1
 );
 
+
+
+h1, h2 {
+ font-family: $font-title;
+}
+
+a, p, table {
+ font-family: $font-text;
+}
+
 .navbar {
  border-bottom: 1px solid #94D4D3;
+}
+
+.navbar a, p {
+ font-family: $font-title;
 }
 
 .btn {
