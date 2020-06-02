@@ -3,4 +3,16 @@ $theme-colors: (
         "secondary": #94D4D3
 );
 
+.navbar {
+ border-bottom: 1px solid #94D4D3;
+}
+
+.btn {
+ margin: 10px;
+}
+
+li {
+list-style: none;
+}
+
 @import "~bootstrap/scss/bootstrap";
