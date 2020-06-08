@@ -70,8 +70,6 @@ class EpisodeController extends AbstractController
         $form = $this->createForm(CommentType::class, $comment);
         $form->handleRequest($request);
         $this->denyAccessUnlessGranted('ROLE_USER');
-        $date = new \DateTime("2018-05-01 00:00:00");
-        var_dump($date);
 
 
 
