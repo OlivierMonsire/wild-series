@@ -26,6 +26,25 @@
         </tbody>
     </table>
 
+    <strong>Programmes :</strong>
+    <ul>
+        {% for comment in episode.comments %}
+            {{ dump(comment) }}
+            <li>{{ comment.author }}</li>
+            <li>{{ comment.comment }}</li>
+            <li>{{ comment.rate }}</li>
+        {% else %}
+            <li>Pas de commentaires</li>
+        {% endfor %}
+    </ul>
+
+    {% if app.user %}
+        {{ form_start(form) }}
+        {{ form_widget(form) }}
+        <button class="btn">{{ button_label|default('Save') }}</button>
+        {{ form_end(form) }}
+    {% endif %}
+
     <a class="btn btn-secondary" href="{{ path('episode_index') }}">back to list</a>
 
     <a class="btn btn-secondary" href="{{ path('episode_edit', {'slug':episode.slug}) }}">edit</a>
