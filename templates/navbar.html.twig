@@ -30,6 +30,18 @@
                 </li>
             </ul>
         <img class="mr-5" src="https://art.pixilart.com/ed662b18ec46a15.png" width="40px">
+
+        {% if app.user %}
+            <li>
+                {{ app.user.email }}
+                <a href="{{ path('app_logout') }}"> Se déconnecter</a>
+            </li>
+
+        {% else %}
+        <li>
+            <a href="{{ path('app_login') }}"> Se connecter</a>
+        </li>
+        {% endif %}
         </div>
     </nav>
 {% endblock %}
