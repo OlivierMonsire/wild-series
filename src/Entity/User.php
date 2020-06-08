@@ -3,9 +3,11 @@
 namespace App\Entity;
 
 use App\Repository\UserRepository;
+use App\Entity\Comment;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use phpDocumentor\Reflection\DocBlock\Tags\Return_;
 use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
@@ -80,7 +82,7 @@ class User implements UserInterface
      */
     public function getUsername(): string
     {
-        return (string) $this->email;
+        return (string) $this->username;
     }
 
     /**
@@ -186,7 +188,6 @@ class User implements UserInterface
 
     public function __toString(): string
     {
-        $this->getUsername();
-        return $this;
+        return $this->getUsername();
     }
 }

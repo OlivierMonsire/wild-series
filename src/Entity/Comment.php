@@ -38,6 +38,11 @@ class Comment
      */
     private $rate;
 
+    /**
+     * @ORM\Column(type="date")
+     */
+    private $date;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -46,6 +51,11 @@ class Comment
     public function getAuthor(): ?User
     {
         return $this->author;
+    }
+
+    public function getAuthorUsername(): ?User
+    {
+        return $this->author->getUsername;
     }
 
     public function setAuthor(?User $author): self
@@ -87,6 +97,18 @@ class Comment
     public function setRate(int $rate): self
     {
         $this->rate = $rate;
+
+        return $this;
+    }
+
+    public function getDate()
+    {
+        return $this->date;
+    }
+
+    public function setDate($date): self
+    {
+        $this->date = $date;
 
         return $this;
     }

@@ -35,6 +35,7 @@ class CommentController extends AbstractController
         $comment = new Comment();
         $form = $this->createForm(Comment1Type::class, $comment);
         $form->handleRequest($request);
+        var_dump();
 
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager = $this->getDoctrine()->getManager();
@@ -64,6 +65,9 @@ class CommentController extends AbstractController
 
     /**
      * @Route("/{id}/edit", name="comment_edit", methods={"GET","POST"})
+     * @param Request $request
+     * @param Comment $comment
+     * @return Response
      */
     public function edit(Request $request, Comment $comment): Response
     {

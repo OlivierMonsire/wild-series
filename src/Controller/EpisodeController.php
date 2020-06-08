@@ -70,6 +70,8 @@ class EpisodeController extends AbstractController
         $form = $this->createForm(CommentType::class, $comment);
         $form->handleRequest($request);
         $this->denyAccessUnlessGranted('ROLE_USER');
+        $date = new \DateTime("2018-05-01 00:00:00");
+        var_dump($date);
 
 
 
@@ -77,6 +79,8 @@ class EpisodeController extends AbstractController
             $comment->setEpisode($episode);
             $user = $this->getUser();
             $comment->setAuthor($user);
+            $date = new \DateTime();
+            $comment->setDate($date);
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($comment);
             $entityManager->flush();
@@ -124,7 +128,7 @@ class EpisodeController extends AbstractController
      */
     public function delete(Request $request, Episode $episode): Response
     {
-        if ($this->isCsrfTokenValid('delete'.$episode->getId(), $request->request->get('_token'))) {
+        if ($this->isCsrfTokenValid('delete' . $episode->getId(), $request->request->get('_token'))) {
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->remove($episode);
             $entityManager->flush();
