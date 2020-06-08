@@ -9,6 +9,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 
 /**
  * @Route("/comment")
@@ -17,6 +18,8 @@ class CommentController extends AbstractController
 {
     /**
      * @Route("/", name="comment_index", methods={"GET"})
+     * @param CommentRepository $commentRepository
+     * @return Response
      */
     public function index(CommentRepository $commentRepository): Response
     {
@@ -27,6 +30,7 @@ class CommentController extends AbstractController
 
     /**
      * @Route("/new", name="comment_new", methods={"GET","POST"})
+     * @IsGranted("ROLE_ADMIN")
      * @param Request $request
      * @return Response
      */
@@ -53,6 +57,7 @@ class CommentController extends AbstractController
 
     /**
      * @Route("/{id}", name="comment_show", methods={"GET"})
+     * @IsGranted("ROLE_SUBSCRIBER")
      * @param Comment $comment
      * @return Response
      */
@@ -65,6 +70,7 @@ class CommentController extends AbstractController
 
     /**
      * @Route("/{id}/edit", name="comment_edit", methods={"GET","POST"})
+     * @IsGranted("ROLE_ADMIN")
      * @param Request $request
      * @param Comment $comment
      * @return Response
@@ -97,6 +103,6 @@ class CommentController extends AbstractController
             $entityManager->flush();
         }
 
-        return $this->redirectToRoute('comment_index');
+        return $this->redirectToRoute('episode_index');
     }
 }

@@ -14,6 +14,7 @@ use Symfony\Component\Mailer\MailerInterface;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Mime\Email;
 use App\Service\Slugify;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 
 /**
  * @Route("/program")
@@ -34,6 +35,7 @@ class ProgramController extends AbstractController
 
     /**
      * @Route("/new", name="program_new", methods={"GET","POST"})
+     * @IsGranted("ROLE_ADMIN")
      * @param Request $request
      * @param Slugify $slugify
      * @param MailerInterface $mailer
@@ -78,6 +80,7 @@ class ProgramController extends AbstractController
 
     /**
      * @Route("/{slug}", name="program_show", methods={"GET"})
+     * @IsGranted("ROLE_SUBSCRIBER")
      * @param Program $program
      * @return Response
      */
@@ -90,6 +93,7 @@ class ProgramController extends AbstractController
 
     /**
      * @Route("/{slug}/edit", name="program_edit", methods={"GET","POST"})
+     * @IsGranted("ROLE_ADMIN")
      * @param Request $request
      * @param Program $program
      * @param Slugify $slugify

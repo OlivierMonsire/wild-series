@@ -9,6 +9,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 
 /**
  * @Route("/season")
@@ -30,6 +31,7 @@ class SeasonController extends AbstractController
     /**
      * @Route("/new", name="season_new", methods={"GET","POST"})
      * @param Request $request
+     * @IsGranted("ROLE_ADMIN")
      * @return Response
      */
     public function new(Request $request): Response
@@ -54,6 +56,7 @@ class SeasonController extends AbstractController
 
     /**
      * @Route("/{id}", name="season_show", methods={"GET"})
+     * @IsGranted("ROLE_SUBSCRIBER")
      * @param Season $season
      * @return Response
      */
@@ -66,6 +69,7 @@ class SeasonController extends AbstractController
 
     /**
      * @Route("/{id}/edit", name="season_edit", methods={"GET","POST"})
+     * @IsGranted("ROLE_ADMIN")
      * @param Request $request
      * @param Season $season
      * @return Response

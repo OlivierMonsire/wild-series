@@ -24,7 +24,10 @@
                 <td>{{ episode.synopsis }}</td>
                 <td>
                     <a class="btn btn-secondary" href="{{ path('episode_show', {'slug':episode.slug}) }}">show</a>
-                    <a class="btn btn-secondary" href="{{ path('episode_edit', {'slug':episode.slug}) }}">edit</a>
+                    {% if is_granted('ROLE_ADMIN') %}
+                        <a class="btn btn-secondary" href="{{ path('episode_edit', {'slug':episode.slug}) }}">edit</a>
+                    {% endif %}
+
                 </td>
             </tr>
         {% else %}

@@ -20,7 +20,10 @@
                 <td>{{ category.name }}</td>
                 <td>
                     <a class="btn btn-secondary" href="{{ path('category_show', {'slug': category.slug}) }}">show</a>
-                    <a class="btn btn-secondary" href="{{ path('category_edit', {'slug': category.slug}) }}">edit</a>
+                    {% if is_granted('ROLE_ADMIN') %}
+                        <a class="btn btn-secondary" href="{{ path('category_edit', {'slug': category.slug}) }}">edit</a>
+                    {% endif %}
+
                 </td>
             </tr>
         {% else %}

@@ -10,6 +10,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 
 /**
  * @Route("/actor")
@@ -30,6 +31,7 @@ class ActorController extends AbstractController
 
     /**
      * @Route("/new", name="actor_new", methods={"GET","POST"})
+     * @IsGranted("ROLE_ADMIN")
      * @param Request $request
      * @param Slugify $slugify
      * @return Response
@@ -58,6 +60,7 @@ class ActorController extends AbstractController
 
     /**
      * @Route("/{slug}", name="actor_show", methods={"GET"})
+     * @IsGranted("ROLE_SUBSCRIBER")
      * @param Actor $actor
      * @return Response
      */
@@ -70,6 +73,7 @@ class ActorController extends AbstractController
 
     /**
      * @Route("/{slug}/edit", name="actor_edit", methods={"GET","POST"})
+     * @IsGranted("ROLE_ADMIN")
      * @param Request $request
      * @param Actor $actor
      * @param Slugify $slugify

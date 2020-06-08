@@ -24,7 +24,10 @@
                 <td>{{ season.description }}</td>
                 <td>
                     <a class="btn btn-secondary" href="{{ path('season_show', {'id': season.id}) }}">show</a>
-                    <a class="btn btn-secondary" href="{{ path('season_edit', {'id': season.id}) }}">edit</a>
+                    {% if is_granted('ROLE_ADMIN') %}
+                        <a class="btn btn-secondary" href="{{ path('season_edit', {'id': season.id}) }}">edit</a>
+                    {% endif %}
+
                 </td>
             </tr>
         {% else %}

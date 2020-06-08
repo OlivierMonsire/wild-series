@@ -14,6 +14,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Twig\Token;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 
 /**
  * @Route("/episode")
@@ -22,6 +23,8 @@ class EpisodeController extends AbstractController
 {
     /**
      * @Route("/", name="episode_index", methods={"GET"})
+     * @param EpisodeRepository $episodeRepository
+     * @return Response
      */
     public function index(EpisodeRepository $episodeRepository): Response
     {
@@ -32,6 +35,7 @@ class EpisodeController extends AbstractController
 
     /**
      * @Route("/new", name="episode_new", methods={"GET","POST"})
+     * @IsGranted("ROLE_ADMIN")
      * @param Request $request
      * @param Slugify $slugify
      * @return Response
@@ -60,6 +64,7 @@ class EpisodeController extends AbstractController
 
     /**
      * @Route("/{slug}", name="episode_show", methods={"GET","POST"})
+     * @IsGranted("ROLE_SUBSCRIBER")
      * @param Episode $episode
      * @param Request $request
      * @return Response
@@ -94,6 +99,7 @@ class EpisodeController extends AbstractController
 
     /**
      * @Route("/{slug}/edit", name="episode_edit", methods={"GET","POST"})
+     * @IsGranted("ROLE_ADMIN")
      * @param Request $request
      * @param Episode $episode
      * @param Slugify $slugify

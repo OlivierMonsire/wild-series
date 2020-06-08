@@ -24,7 +24,10 @@
                 <td><img src="{{ program.poster }}" width="80%"></td>
                 <td>
                     <a class="btn btn-secondary" href="{{ path('program_show', {'slug': program.slug}) }}">show</a>
-                    <a class="btn btn-secondary" href="{{ path('program_edit', {'slug': program.slug}) }}">edit</a>
+                    {% if is_granted('ROLE_ADMIN') %}
+                        <a class="btn btn-secondary" href="{{ path('program_edit', {'slug': program.slug}) }}">edit</a>
+                    {%endif%}
+
                 </td>
             </tr>
         {% else %}
