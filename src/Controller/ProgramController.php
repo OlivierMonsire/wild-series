@@ -29,7 +29,7 @@ class ProgramController extends AbstractController
     public function index(ProgramRepository $programRepository): Response
     {
         return $this->render('program/index.html.twig', [
-            'programs' => $programRepository->findAllWithCategories(),
+            'programs' => $programRepository->findAllWithCategoriesAndActors(),
         ]);
     }
 
@@ -55,7 +55,7 @@ class ProgramController extends AbstractController
             $program->setSlug($slug);
             $entityManager->persist($program);
             $entityManager->flush();
-            $from= $this->getParameter("mailer_from");
+            $from = $this->getParameter("mailer_from");
             $email = (new Email())
                 ->from($from)
                 ->to('testwildcodeschool032020@gmail.com')
@@ -63,8 +63,6 @@ class ProgramController extends AbstractController
                 ->html($this->renderView('program/email/notification.html.twig',
                     ['program' => $program]
                 ));
-
-
 
 
             $mailer->send($email);
@@ -125,7 +123,7 @@ class ProgramController extends AbstractController
      */
     public function delete(Request $request, Program $program): Response
     {
-        if ($this->isCsrfTokenValid('delete'.$program->getId(), $request->request->get('_token'))) {
+        if ($this->isCsrfTokenValid('delete' . $program->getId(), $request->request->get('_token'))) {
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->remove($program);
             $entityManager->flush();

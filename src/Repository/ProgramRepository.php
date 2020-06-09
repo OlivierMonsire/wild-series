@@ -31,7 +31,7 @@ class ProgramRepository extends ServiceEntityRepository
         return $qb->execute();
     }
 
-    public function findAllWithCategoriesAndTags()
+    public function findAllWithCategoriesAndActors()
     {
         $em = $this->getEntityManager();
         $query = $em->createQuery('SELECT p, c, a FROM App\Entity\Program p INNER JOIN p.category c INNER JOIN p.actors a');

@@ -13,6 +13,7 @@
                 <th>Summary</th>
                 <th>Poster</th>
                 <th>actions</th>
+                <th>actors</th>
             </tr>
         </thead>
         <tbody>
@@ -27,7 +28,12 @@
                     {% if is_granted('ROLE_ADMIN') %}
                         <a class="btn btn-secondary" href="{{ path('program_edit', {'slug': program.slug}) }}">edit</a>
                     {%endif%}
-
+                <td>
+                    <ul>
+                        {% for actor in program.actors %}
+                            <li><small>{{ actor.lastname }}, {{ actor.firstname }}</small></li>
+                        {% endfor %}
+                    </ul>
                 </td>
             </tr>
         {% else %}
