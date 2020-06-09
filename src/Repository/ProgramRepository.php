@@ -19,6 +19,8 @@ class ProgramRepository extends ServiceEntityRepository
         parent::__construct($registry, Program::class);
     }
 
+
+
     public function findAllWithCategories()
     {
         $qb = $this->createQueryBuilder('p')
