@@ -32,6 +32,8 @@
                     <ul>
                         {% for actor in program.actors %}
                             <li><small>{{ actor.lastname }}, {{ actor.firstname }}</small></li>
+                            {% else %}
+                                <li><small>Aucun acteur référencer</small></li>
                         {% endfor %}
                     </ul>
                 </td>
