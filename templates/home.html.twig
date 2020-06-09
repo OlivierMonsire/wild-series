@@ -1,4 +1,18 @@
 {% extends "base.html.twig" %}
 {% block body %}
     <h1>Bienvenue !</h1>
+
+    <div>
+
+        <h2>Les dernières séries:</h2>
+        {% for program in programs |reverse|slice(0, 3) %}
+            <div class="card m-3" style="width: 25rem;">
+                <img class="card-img-top" src="{{ program.poster}}" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">{{ program.title }}</h5>
+                    <p class="card-text">{{ program.summary}}</p>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
 {% endblock %}
