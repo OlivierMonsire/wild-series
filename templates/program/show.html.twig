@@ -29,7 +29,7 @@
     <strong>Acteur :</strong>
     <ul>
         {% for actor in program.actors %}
-            <a class="btn btn-primary" href="{{ path('actor_show', {'slug': actor.slug}) }}">{{ actor.name }}</a>
+            <a class="btn btn-primary" href="{{ path('actor_show', {'slug': actor.slug}) }}">{{ actor.firstname }} {{ actor.lastname }}</a>
         {% else %}
             <li>Aucun acteur pour cette série</li>
         {% endfor %}

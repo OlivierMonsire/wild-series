@@ -80,7 +80,6 @@ class ProgramController extends AbstractController
 
     /**
      * @Route("/{slug}", name="program_show", methods={"GET"})
-     * @IsGranted("ROLE_SUBSCRIBER")
      * @param Program $program
      * @return Response
      */

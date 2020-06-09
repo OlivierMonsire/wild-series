@@ -17,7 +17,7 @@
         {% for actor in actors %}
             <tr>
                 <td>{{ actor.id }}</td>
-                <td>{{ actor.name }}</td>
+                <td>{{ actor.firstname }} {{ actor.lastname }}</td>
                 <td>
                     <a class="btn btn-secondary" href="{{ path('actor_show', {'slug': actor.slug}) }}">show</a>
                     {% if is_granted('ROLE_ADMIN') %}
