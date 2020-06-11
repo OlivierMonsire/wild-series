@@ -132,4 +132,14 @@ class ProgramController extends AbstractController
 
         return $this->redirectToRoute('program_index');
     }
+
+    /**
+     * @Route("/{id}/watchlist", name="program_watchlist", methods={"GET"})
+     * @param Program $program
+     * @return Response
+     */
+    public function addToWatchlist(Program $program): Response
+    {
+        return $this->render('program/watchlist.html.twig');
+    }
 }
