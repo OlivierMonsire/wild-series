@@ -53,7 +53,7 @@ class Actor
 
     {
 
-        return $this->getId() . ' - ' . $this->getName();
+        return $this-> getFirstname(). ' '. $this->getLastname();
 
     }
 

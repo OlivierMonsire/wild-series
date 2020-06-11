@@ -44,11 +44,12 @@ class ActorController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager = $this->getDoctrine()->getManager();
-            $slug = $slugify->generate($actor->getName());
+            $slug = $slugify->generate($actor->getFirstname());
+            $slug .= '-'. $slugify->generate($actor->getLastname());
             $actor->setSlug($slug);
             $entityManager->persist($actor);
             $entityManager->flush();
-
+            $this->addFlash('success', 'Un.e nouveau.elle acteur.rice a bien été ajouté.e');
             return $this->redirectToRoute('actor_index');
         }
 
@@ -85,10 +86,11 @@ class ActorController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $slug = $slugify->generate($actor->getName());
+            $slug = $slugify->generate($actor->getFirstname());
+            $slug .= '-'. $slugify->generate($actor->getLastname());
             $actor->setSlug($slug);
             $this->getDoctrine()->getManager()->flush();
-
+            $this->addFlash('success', 'Un.e nouveau.elle acteur.rice a bien été modifié.e');
             return $this->redirectToRoute('actor_index');
         }
 
@@ -110,6 +112,7 @@ class ActorController extends AbstractController
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->remove($actor);
             $entityManager->flush();
+            $this->addFlash('danger', 'Un.e nouveau.elle acteur.rice a bien été supprimé.e');
         }
 
         return $this->redirectToRoute('actor_index');

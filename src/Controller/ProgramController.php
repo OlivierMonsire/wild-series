@@ -15,6 +15,7 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Mime\Email;
 use App\Service\Slugify;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
+use Symfony\Component\HttpFoundation\Session\SessionInterface;
 
 /**
  * @Route("/program")
@@ -63,10 +64,8 @@ class ProgramController extends AbstractController
                 ->html($this->renderView('program/email/notification.html.twig',
                     ['program' => $program]
                 ));
-
-
             $mailer->send($email);
-
+            $this->addFlash('success', 'La nouvelle série a bien été  à été ajoutée');
             return $this->redirectToRoute('program_index');
         }
 
@@ -106,7 +105,7 @@ class ProgramController extends AbstractController
             $slug = $slugify->generate($program->getTitle());
             $program->setSlug($slug);
             $this->getDoctrine()->getManager()->flush();
-
+            $this->addFlash('success', 'La série a bien été modifiée');
             return $this->redirectToRoute('program_index');
         }
 
@@ -128,6 +127,7 @@ class ProgramController extends AbstractController
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->remove($program);
             $entityManager->flush();
+            $this->addFlash('danger', 'La série a bien été supprimée');
         }
 
         return $this->redirectToRoute('program_index');
