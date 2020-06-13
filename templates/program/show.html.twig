@@ -16,8 +16,9 @@
 
                 <td>
                     {{ program.title }}
-                    <i class="far fa-heart ml-2"></i>
+                    <i id="watchlist" class="{{ app.user.isInWatchlist(program) ? 'fas' : 'far' }} fa-heart watchlist" data-href="{{path('program_watchlist', {'id': program.id})}}"></i>
                 </td>
+
             </tr>
             <tr>
                 <th>Summary</th>
@@ -33,7 +34,7 @@
     <strong>Acteur :</strong>
     <ul>
         {% for actor in program.actors %}
-            <li><a class="btn btn-primary" href="{{ path('actor_show', {'slug': actor.slug}) }}">{{ actor.lastname }}, {{ actor.firstname }} </a></li>
+            <a class="btn btn-primary" href="{{ path('actor_show', {'slug': actor.slug}) }}">{{ actor.lastname }}, {{ actor.firstname }} </a>
         {% else %}
             <li>Aucun acteur pour cette série</li>
         {% endfor %}
@@ -45,8 +46,4 @@
         <a class="btn btn-secondary" href="{{ path('program_edit', {'slug': program.slug}) }}">edit</a>
         {{ include('program/_delete_form.html.twig') }}
     {% endif %}
-
-
-
-
 {% endblock %}

@@ -90,7 +90,7 @@ class User implements UserInterface
      */
     public function getUsername(): string
     {
-        return (string) $this->username;
+        return (string)$this->username;
     }
 
     /**
@@ -117,7 +117,7 @@ class User implements UserInterface
      */
     public function getPassword(): string
     {
-        return (string) $this->password;
+        return (string)$this->password;
     }
 
     public function setPassword(string $password): self
@@ -224,4 +224,16 @@ class User implements UserInterface
 
         return $this;
     }
+
+    public function isInWatchlist(Program $program): bool
+    {
+        $colletion = $this->getPrograms();
+        foreach ($colletion as $object){
+            if ($object === $program){
+                return true;
+            }
+        }
+        return false;
+    }
+
 }
