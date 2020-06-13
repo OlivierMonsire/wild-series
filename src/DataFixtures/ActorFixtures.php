@@ -51,7 +51,6 @@ class ActorFixtures extends Fixture implements DependentFixtureInterface
         ],
     ];
 
-
     public function load(ObjectManager $manager)
     {
         $faker  =  Faker\Factory::create('en_US');
