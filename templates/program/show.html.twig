@@ -16,10 +16,11 @@
 
                 <td>
                     {{ program.title }}
-                    <i id="watchlist" class="{{ app.user.isInWatchlist(program) ? 'fas' : 'far' }} fa-heart watchlist" data-href="{{path('program_watchlist', {'id': program.id})}}"></i>
+                    <i id="watchlist" class="{{ app.user.isInWatchlist(program) ? 'fas' : 'far' }} fa-heart watchlist" data-href=”{{path('program_watchlist', {'id': program.id})}}”></i>
                 </td>
 
             </tr>
+
             <tr>
                 <th>Summary</th>
                 <td>{{ program.summary }}</td>

@@ -138,7 +138,7 @@ class ProgramController extends AbstractController
     }
 
     /**
-     * @Route("/{id}/watchlist", name="program_watchlist", methods={"GET"})
+     * @Route("/{id}/watchlist", name="program_watchlist", methods={"GET","POST"})
      * @param Request $request
      * @param Program $program
      * @param EntityManagerInterface $manager
