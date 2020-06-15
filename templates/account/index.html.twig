@@ -2,4 +2,11 @@
 {% block body %}
     <h2>Mon Compte</h2>
     <p>Bonjour, {{ user.username }} !</p>
+
+    <h3>Vos favoris</h3>
+    {% for program in user.programs %}
+    <ul>{{ program.title }}</ul>
+        {% else %}
+            <p>Vous n'avez pas de séries en favoris.</p>
+    {% endfor %}
 {% endblock %}

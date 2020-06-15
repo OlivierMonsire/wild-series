@@ -1,7 +1,7 @@
 @import "~bootstrap/scss/bootstrap";
-@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300&family=Special+Elite&display=swap');
-$font-title: 'Special Elite', cursive;
-$font-text: 'Lato', sans-serif;
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@300&family=Special+Elite&display=swap");
+$font-title: "Special Elite", cursive;
+$font-text: "Lato", sans-serif;
 
 $theme-colors: (
         "primary": #F4D4D3,
@@ -38,4 +38,9 @@ list-style: none;
 }
 
 @import "~bootstrap/scss/bootstrap";
-$fa-font-path: '@fortawesome/fontawesome-free/webfonts';
+$fa-font-path: "~@fortawesome/fontawesome-free/webfonts";
+@import "~@fortawesome/fontawesome-free/scss/fontawesome";
+@import "~@fortawesome/fontawesome-free/scss/solid";
+@import "~@fortawesome/fontawesome-free/scss/regular";
+@import "~@fortawesome/fontawesome-free/scss/brands";
+@import "~@fortawesome/fontawesome-free/scss/v4-shims";

@@ -7,14 +7,14 @@
 
     <table class="table">
         <thead>
-            <tr>
-                <th>Id</th>
-                <th>Title</th>
-                <th>Summary</th>
-                <th>Poster</th>
-                <th>actions</th>
-                <th>actors</th>
-            </tr>
+        <tr>
+            <th>Id</th>
+            <th>Title</th>
+            <th>Summary</th>
+            <th>Poster</th>
+            <th>actions</th>
+            <th>actors</th>
+        </tr>
         </thead>
         <tbody>
         {% for program in programs %}
@@ -27,13 +27,16 @@
                     <a class="btn btn-secondary" href="{{ path('program_show', {'slug': program.slug}) }}">show</a>
                     {% if is_granted('ROLE_ADMIN') %}
                         <a class="btn btn-secondary" href="{{ path('program_edit', {'slug': program.slug}) }}">edit</a>
-                    {%endif%}
+                    {% endif %}
+                    <i id="watchlist-{{ program.id }}"
+                       class="{{ app.user.isInWatchlist(program) ? 'fas' : 'far' }} fa-heart watchlist"
+                       style="color: red" data-href="{{ path('program_watchlist', {'id': program.id}) }}"></i>
                 <td>
                     <ul>
                         {% for actor in program.actors %}
                             <li><small>{{ actor.lastname }}, {{ actor.firstname }}</small></li>
-                            {% else %}
-                                <li><small>Aucun acteur référencer</small></li>
+                        {% else %}
+                            <li><small>Aucun acteur référencer</small></li>
                         {% endfor %}
                     </ul>
                 </td>
@@ -47,4 +50,10 @@
     </table>
 
     <a class="btn btn-secondary" href="{{ path('program_new') }}">Create new</a>
+
+    {% block javascripts %}
+        {{ encore_entry_script_tags('watchlist') }}
+        {{ encore_entry_script_tags('app') }}
+    {% endblock %}
 {% endblock %}
+
