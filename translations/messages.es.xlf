@@ -1,65 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
-  <file source-language="fr" target-language="en" datatype="plaintext" original="file.ext">
+  <file source-language="fr" target-language="es" datatype="plaintext" original="file.ext">
     <header>
       <tool tool-id="symfony" tool-name="Symfony"/>
     </header>
     <body>
-      <trans-unit id="LPJNul_" resname="hello">
-        <source>hello</source>
-        <target>Hello</target>
-      </trans-unit>
-      <trans-unit id="CXmLOF4" resname="account.registration">
-        <source>account.registration</source>
-        <target>Sign In</target>
-      </trans-unit>
-      <trans-unit id="E_t5j6Q" resname="account.login">
-        <source>account.login</source>
-        <target>Log In</target>
-      </trans-unit>
-      <trans-unit id="CDjx2ju" resname="hello_username">
-        <source>hello_username</source>
-        <target>Hello %username%</target>
-      </trans-unit>
-      <trans-unit id="Q7UTU9q" resname="account.logout">
-        <source>account.logout</source>
-        <target>Log Out</target>
-      </trans-unit>
       <trans-unit id="2vH.vbB" resname="account.logIn">
         <source>account.logIn</source>
-        <target>Log In</target>
+        <target>Iniciar sesión</target>
       </trans-unit>
       <trans-unit id="D143kbX" resname="account.signOut">
         <source>account.signOut</source>
-        <target>Sign Out</target>
+        <target>Cerrar sesión</target>
       </trans-unit>
       <trans-unit id="KmGFx7N" resname="account.signIn">
         <source>account.signIn</source>
-        <target>Sign In</target>
+        <target>Iniciar sesión</target>
       </trans-unit>
       <trans-unit id="XjJtrab" resname="account.mail">
         <source>account.mail</source>
-        <target>Mail</target>
+        <target>Correo electrónico</target>
       </trans-unit>
       <trans-unit id="XziQdF_" resname="account.password">
         <source>account.password</source>
-        <target>Password</target>
+        <target>Contraseña</target>
       </trans-unit>
       <trans-unit id="n8ysvxX" resname="account.subscribe">
         <source>account.subscribe</source>
-        <target>Subscribe</target>
+        <target>Suscribir</target>
       </trans-unit>
       <trans-unit id="QhzW.0h" resname="show.edit">
         <source>show.edit</source>
-        <target>Edit</target>
+        <target>Editar</target>
       </trans-unit>
       <trans-unit id="_94oCFa" resname="category.season">
         <source>category.season</source>
-        <target>Season</target>
+        <target>Temporada</target>
       </trans-unit>
       <trans-unit id="6GY2Pwd" resname="show.back">
         <source>show.back</source>
-        <target>Back</target>
+        <target>Regreso</target>
       </trans-unit>
       <trans-unit id="oqx9fos" resname="list.id">
         <source>list.id</source>
@@ -67,107 +47,111 @@
       </trans-unit>
       <trans-unit id="c.zqcGt" resname="list.number">
         <source>list.number</source>
-        <target>Number</target>
+        <target>Número</target>
       </trans-unit>
       <trans-unit id="VU72Ze3" resname="list.year">
         <source>list.year</source>
-        <target>Year</target>
+        <target>Año</target>
       </trans-unit>
       <trans-unit id="NF08W69" resname="list.description">
         <source>list.description</source>
-        <target>Description</target>
+        <target>Descripción</target>
       </trans-unit>
       <trans-unit id="NfBwCox" resname="list.actions">
         <source>list.actions</source>
-        <target>Actions</target>
+        <target>Accións</target>
       </trans-unit>
       <trans-unit id="cwhrqp5" resname="show.show">
         <source>show.show</source>
-        <target>Show</target>
+        <target>Mostrar</target>
       </trans-unit>
       <trans-unit id="S9LAJVd" resname="error.noRecord">
         <source>error.noRecord</source>
-        <target>No Record</target>
+        <target>Sin registro</target>
       </trans-unit>
       <trans-unit id="NfBa7lT" resname="show.new">
         <source>show.new</source>
-        <target>New</target>
+        <target>Nueva</target>
       </trans-unit>
       <trans-unit id="o19nDsp" resname="show.delete">
         <source>show.delete</source>
-        <target>Delete</target>
+        <target>Eliminar</target>
       </trans-unit>
       <trans-unit id="UxgIz22" resname="category.category">
         <source>category.category</source>
-        <target>Category</target>
+        <target>Categoría</target>
       </trans-unit>
       <trans-unit id="ORY7hhD" resname="category.categories">
         <source>category.categories</source>
-        <target>Categories</target>
+        <target>Categorias</target>
       </trans-unit>
       <trans-unit id="RsnSDMT" resname="list.name">
         <source>list.name</source>
-        <target>Name</target>
+        <target>Apellido</target>
       </trans-unit>
       <trans-unit id="0aO4Urj" resname="category.program">
         <source>category.program</source>
-        <target>Program</target>
+        <target>Programa</target>
       </trans-unit>
       <trans-unit id="b3EnH7p" resname="list.title">
         <source>list.title</source>
-        <target>Title</target>
+        <target>Título</target>
       </trans-unit>
       <trans-unit id="mWisbYp" resname="list.summary">
         <source>list.summary</source>
-        <target>Summary</target>
+        <target>Resumen</target>
       </trans-unit>
       <trans-unit id="ML_DQ5_" resname="list.poster">
         <source>list.poster</source>
-        <target>Poster</target>
+        <target>Póster</target>
       </trans-unit>
       <trans-unit id="06x3Kl_" resname="list.actors">
         <source>list.actors</source>
-        <target>Actors</target>
+        <target>Actores</target>
       </trans-unit>
       <trans-unit id="L_RKIq3" resname="category.actors">
         <source>category.actors</source>
-        <target>Actors</target>
+        <target>Actores</target>
       </trans-unit>
       <trans-unit id="4eCCX6y" resname="category.comment">
         <source>category.comment</source>
-        <target>Comment</target>
+        <target>Comentario</target>
       </trans-unit>
       <trans-unit id="QlklRfO" resname="list.rate">
         <source>list.rate</source>
-        <target>Rate</target>
+        <target>Velocidad</target>
       </trans-unit>
       <trans-unit id="_bbVkKl" resname="home.welcome">
         <source>home.welcome</source>
-        <target>Welcome</target>
+        <target>Bienvenidos</target>
       </trans-unit>
       <trans-unit id="JV7Psm5" resname="home.lastPrograms">
         <source>home.lastPrograms</source>
-        <target>Last Programs</target>
+        <target>Ultimos programas</target>
       </trans-unit>
       <trans-unit id="5HDbx2U" resname="category.episode">
         <source>category.episode</source>
-        <target>Episode</target>
+        <target>Episodio</target>
       </trans-unit>
       <trans-unit id="FViDZs1" resname="list.synopsis">
         <source>list.synopsis</source>
-        <target>Synopsis</target>
+        <target>Sinopsis</target>
       </trans-unit>
       <trans-unit id="wgCXFDN" resname="category.comments">
         <source>category.comments</source>
-        <target>Comments</target>
+        <target>Comentarios</target>
       </trans-unit>
       <trans-unit id="WruuyrH" resname="account.myAccount">
         <source>account.myAccount</source>
-        <target>My Account</target>
+        <target>Mi Cuenta</target>
+      </trans-unit>
+      <trans-unit id="CDjx2ju" resname="hello_username">
+        <source>hello_username</source>
+        <target>Hola %username%</target>
       </trans-unit>
       <trans-unit id="d.MHKLi" resname="account.yourwatchlist">
         <source>account.yourwatchlist</source>
-        <target>Your Watchlist</target>
+        <target>Su lista de observación</target>
       </trans-unit>
       <trans-unit id="i7Uxc7E" resname="category.actor">
         <source>category.actor</source>
@@ -175,23 +159,23 @@
       </trans-unit>
       <trans-unit id="mBi7OXC" resname="category.programs">
         <source>category.programs</source>
-        <target>Programs</target>
+        <target>Programas</target>
       </trans-unit>
       <trans-unit id="LgVq3c5" resname="category.seasons">
         <source>category.seasons</source>
-        <target>Seasons</target>
+        <target>Estaciones</target>
       </trans-unit>
       <trans-unit id="sFy_Wll" resname="category.episodes">
         <source>category.episodes</source>
-        <target>Episodes</target>
+        <target>Episodios</target>
       </trans-unit>
       <trans-unit id="1Wmrjdr" resname="account.logOut">
         <source>account.logOut</source>
-        <target>Log Out</target>
+        <target>Cerrar Sesión</target>
       </trans-unit>
       <trans-unit id="JHaPu94" resname="language.language">
         <source>language.language</source>
-        <target>Language</target>
+        <target>Idioma</target>
       </trans-unit>
     </body>
   </file>

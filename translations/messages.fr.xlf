@@ -63,107 +63,135 @@
       </trans-unit>
       <trans-unit id="cwhrqp5" resname="show.show">
         <source>show.show</source>
-        <target>__show.show</target>
+        <target>Voir</target>
       </trans-unit>
       <trans-unit id="QhzW.0h" resname="show.edit">
         <source>show.edit</source>
-        <target>__show.edit</target>
+        <target>Editer</target>
       </trans-unit>
       <trans-unit id="S9LAJVd" resname="error.noRecord">
         <source>error.noRecord</source>
-        <target>__error.noRecord</target>
+        <target>Section vide</target>
       </trans-unit>
       <trans-unit id="NfBa7lT" resname="show.new">
         <source>show.new</source>
-        <target>__show.new</target>
+        <target>Nouveau</target>
       </trans-unit>
       <trans-unit id="oqx9fos" resname="list.id">
         <source>list.id</source>
-        <target>__list.id</target>
+        <target>Id</target>
       </trans-unit>
       <trans-unit id="RsnSDMT" resname="list.name">
         <source>list.name</source>
-        <target>__list.name</target>
+        <target>Nom</target>
       </trans-unit>
       <trans-unit id="NfBwCox" resname="list.actions">
         <source>list.actions</source>
-        <target>__list.actions</target>
+        <target>Actions</target>
       </trans-unit>
       <trans-unit id="c.zqcGt" resname="list.number">
         <source>list.number</source>
-        <target>__list.number</target>
+        <target>Numéro</target>
       </trans-unit>
       <trans-unit id="VU72Ze3" resname="list.year">
         <source>list.year</source>
-        <target>__list.year</target>
+        <target>Année</target>
       </trans-unit>
       <trans-unit id="NF08W69" resname="list.description">
         <source>list.description</source>
-        <target>__list.description</target>
+        <target>Description</target>
       </trans-unit>
       <trans-unit id="ORY7hhD" resname="category.categories">
         <source>category.categories</source>
-        <target>__category.categories</target>
+        <target>Categories</target>
       </trans-unit>
       <trans-unit id="b3EnH7p" resname="list.title">
         <source>list.title</source>
-        <target>__list.title</target>
+        <target>Titre</target>
       </trans-unit>
       <trans-unit id="mWisbYp" resname="list.summary">
         <source>list.summary</source>
-        <target>__list.summary</target>
+        <target>Résumer</target>
       </trans-unit>
       <trans-unit id="ML_DQ5_" resname="list.poster">
         <source>list.poster</source>
-        <target>__list.poster</target>
+        <target>Poster</target>
       </trans-unit>
       <trans-unit id="06x3Kl_" resname="list.actors">
         <source>list.actors</source>
-        <target>__list.actors</target>
+        <target>Acteurs</target>
       </trans-unit>
       <trans-unit id="QlklRfO" resname="list.rate">
         <source>list.rate</source>
-        <target>__list.rate</target>
+        <target>Note</target>
       </trans-unit>
       <trans-unit id="FViDZs1" resname="list.synopsis">
         <source>list.synopsis</source>
-        <target>__list.synopsis</target>
+        <target>Synopsis</target>
       </trans-unit>
       <trans-unit id="L_RKIq3" resname="category.actors">
         <source>category.actors</source>
-        <target>__category.actors</target>
+        <target>Acteurs</target>
       </trans-unit>
       <trans-unit id="o19nDsp" resname="show.delete">
         <source>show.delete</source>
-        <target>__show.delete</target>
+        <target>Supprimer</target>
       </trans-unit>
       <trans-unit id="mBi7OXC" resname="category.programs">
         <source>category.programs</source>
-        <target>__category.programs</target>
+        <target>Séries</target>
       </trans-unit>
       <trans-unit id="LgVq3c5" resname="category.seasons">
         <source>category.seasons</source>
-        <target>__category.seasons</target>
+        <target>Saisons</target>
       </trans-unit>
       <trans-unit id="sFy_Wll" resname="category.episodes">
         <source>category.episodes</source>
-        <target>__category.episodes</target>
+        <target>Episodes</target>
       </trans-unit>
       <trans-unit id="6GY2Pwd" resname="show.back">
         <source>show.back</source>
-        <target>__show.back</target>
+        <target>Retour</target>
       </trans-unit>
       <trans-unit id="4eCCX6y" resname="category.comment">
         <source>category.comment</source>
-        <target>__category.comment</target>
+        <target>Commentaire</target>
       </trans-unit>
       <trans-unit id="d.MHKLi" resname="account.yourwatchlist">
         <source>account.yourwatchlist</source>
-        <target>__account.yourwatchlist</target>
+        <target>Vos favoris</target>
       </trans-unit>
       <trans-unit id="JHaPu94" resname="language.language">
         <source>language.language</source>
-        <target>__language.language</target>
+        <target>Langue</target>
+      </trans-unit>
+      <trans-unit id="2vH.vbB" resname="account.logIn">
+        <source>account.logIn</source>
+        <target>Se connecter</target>
+      </trans-unit>
+      <trans-unit id="D143kbX" resname="account.signOut">
+        <source>account.signOut</source>
+        <target>Se déconnecter</target>
+      </trans-unit>
+      <trans-unit id="KmGFx7N" resname="account.signIn">
+        <source>account.signIn</source>
+        <target>Se connecter</target>
+      </trans-unit>
+      <trans-unit id="XjJtrab" resname="account.mail">
+        <source>account.mail</source>
+        <target>Email</target>
+      </trans-unit>
+      <trans-unit id="XziQdF_" resname="account.password">
+        <source>account.password</source>
+        <target>Mot de passe</target>
+      </trans-unit>
+      <trans-unit id="wgCXFDN" resname="category.comments">
+        <source>category.comments</source>
+        <target>Commentaires</target>
+      </trans-unit>
+      <trans-unit id="1Wmrjdr" resname="account.logOut">
+        <source>account.logOut</source>
+        <target>Se déconnecter</target>
       </trans-unit>
     </body>
   </file>
