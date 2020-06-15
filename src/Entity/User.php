@@ -55,9 +55,15 @@ class User implements UserInterface
      */
     private $bio;
 
+    /**
+     * @ORM\ManyToMany(targetEntity=Program::class)
+     */
+    private $programs;
+
     public function __construct()
     {
         $this->comments = new ArrayCollection();
+        $this->programs = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -84,7 +90,7 @@ class User implements UserInterface
      */
     public function getUsername(): string
     {
-        return (string) $this->username;
+        return (string)$this->username;
     }
 
     /**
@@ -111,7 +117,7 @@ class User implements UserInterface
      */
     public function getPassword(): string
     {
-        return (string) $this->password;
+        return (string)$this->password;
     }
 
     public function setPassword(string $password): self
@@ -192,4 +198,42 @@ class User implements UserInterface
     {
         return $this->getUsername();
     }
+
+    /**
+     * @return Collection|Program[]
+     */
+    public function getPrograms(): Collection
+    {
+        return $this->programs;
+    }
+
+    public function addProgram(Program $program): self
+    {
+        if (!$this->programs->contains($program)) {
+            $this->programs[] = $program;
+        }
+
+        return $this;
+    }
+
+    public function removeProgram(Program $program): self
+    {
+        if ($this->programs->contains($program)) {
+            $this->programs->removeElement($program);
+        }
+
+        return $this;
+    }
+
+    public function isInWatchlist(Program $program): bool
+    {
+        $colletion = $this->getPrograms();
+        foreach ($colletion as $object){
+            if ($object === $program){
+                return true;
+            }
+        }
+        return false;
+    }
+
 }

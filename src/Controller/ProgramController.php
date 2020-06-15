@@ -3,8 +3,11 @@
 namespace App\Controller;
 
 use App\Entity\Program;
+use App\Entity\User;
 use App\Form\ProgramType;
 use App\Repository\ProgramRepository;
+use Doctrine\ORM\EntityManagerInterface;
+use Symfony\Bridge\Doctrine\Security\User\UserLoaderInterface;
 use Symfony\Bridge\Twig\Mime\TemplatedEmail;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -16,6 +19,7 @@ use Symfony\Component\Mime\Email;
 use App\Service\Slugify;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
+use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
  * @Route("/program")
@@ -131,5 +135,25 @@ class ProgramController extends AbstractController
         }
 
         return $this->redirectToRoute('program_index');
+    }
+
+    /**
+     * @Route("/{id}/watchlist", name="program_watchlist", methods={"GET","POST"})
+     * @param Request $request
+     * @param Program $program
+     * @param EntityManagerInterface $manager
+     * @return Response
+     */
+    public function addToWatchlist(Request $request, Program $program, EntityManagerInterface $manager): Response
+    {
+        if ($this->getUser()->getPrograms()->contains($program)) {
+            $this->getUser()->removeProgram($program);
+        } else {
+            $this->getUser()->AddProgram($program);
+        }
+        $manager->flush();
+        return $this->json([
+            'isInWatchlist' => $this->getUser()->isInWatchlist($program)
+        ]);
     }
 }
