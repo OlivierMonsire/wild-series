@@ -14,10 +14,7 @@
                 <li class="nav-item">
                     <a class="nav-link" href="/wild">Wild</a>
                 </li> #}
-                <li class="nav-item ml-3">
-                    <a class="nav-link" href="{{ path('category_index') }}"> {{ 'category.categories'|trans }}</a>
-                </li>
-                <li class="nav-item">
+                <li class="nav-item ml-2">
                     <a class="nav-link" href="{{ path('program_index') }}"> {{ 'category.programs'|trans }}</a>
                 </li>
                 <li class="nav-item">
@@ -29,6 +26,22 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{{ path('actor_index') }}"> {{ 'category.actors'|trans }} </a>
                 </li>
+
+
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        {{ 'category.categories'|trans }}
+                    </a>
+                    <div class="dropdown-menu bg-primary" aria-labelledby="navbarDropdownMenuLink">
+                        {{ render(controller(
+                            'App\\Controller\\CategoryController::navList'
+                        )) }}
+                    </div>
+                </li>
+
+
+
             </ul>
             <img class="mr-5" src="https://art.pixilart.com/ed662b18ec46a15.png" width="40px">
             {% if is_granted('ROLE_USER') %}
@@ -70,7 +83,4 @@
             </div>
         </div>
     </nav>
-
-
-
 {% endblock %}

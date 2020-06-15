@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Category;
 use App\Form\CategoryType;
 use App\Repository\CategoryRepository;
+use App\Repository\ProgramRepository;
 use App\Service\Slugify;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -30,12 +31,26 @@ class CategoryController extends AbstractController
     }
 
     /**
+     * @Route("/", name="category_list", methods={"GET"})
+     * @param CategoryRepository $categoryRepository
+     * @param ProgramRepository $programRepository
+     * @return Response
+     */
+    public function navList(CategoryRepository $categoryRepository, ProgramRepository $programRepository): Response
+    {
+        return $this->render('category/_list.html.twig', [
+            'categories' => $categoryRepository->findAll()
+        ]);
+    }
+
+    /**
      * @Route("/new", name="category_new", methods={"GET","POST"})
      * @IsGranted("ROLE_ADMIN")
      * @param Request $request
      * @param Slugify $slugify
      * @return Response
      */
+
     public function new(Request $request, Slugify $slugify): Response
     {
         $category = new Category();
@@ -62,12 +77,14 @@ class CategoryController extends AbstractController
      * @Route("/{slug}", name="category_show", methods={"GET"})
      * @IsGranted("ROLE_SUBSCRIBER")
      * @param Category $category
+     * @param ProgramRepository $programRepository
      * @return Response
      */
-    public function show(Category $category): Response
+    public function show(Category $category, ProgramRepository $programRepository): Response
     {
         return $this->render('category/show.html.twig', [
             'category' => $category,
+            'programs' => $programRepository->findByCategory($category)
         ]);
     }
 
