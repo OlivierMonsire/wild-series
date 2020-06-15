@@ -5,6 +5,7 @@ controllers:
     requirements:
         _locale: fr|es|en
 
+
 kernel:
     resource: ../../src/Kernel.php
     type: annotation

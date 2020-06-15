@@ -1,32 +1,32 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Episode{% endblock %}
+{% block title %}{{ 'category.episode'|trans }}{% endblock %}
 
 {% block body %}
-    <h1>Episode</h1>
+    <h1>{{ 'category.episode'|trans }}</h1>
 
     <table class="table">
         <tbody>
             <tr>
-                <th>Id</th>
+                <th>{{ 'list.id'|trans }}</th>
                 <td>{{ episode.id }}</td>
             </tr>
             <tr>
-                <th>Title</th>
+                <th>Ti{{ 'list.title'|trans }}</th>
                 <td>{{ episode.title }}</td>
             </tr>
             <tr>
-                <th>Number</th>
+                <th>{{ 'list.number'|trans }}</th>
                 <td>{{ episode.number }}</td>
             </tr>
             <tr>
-                <th>Synopsis</th>
+                <th>{{ 'list.synopsis'|trans }}</th>
                 <td>{{ episode.synopsis }}</td>
             </tr>
         </tbody>
     </table>
 
-    <strong>Programmes :</strong>
+    <strong>{{ 'category.comments'|trans }} :</strong>
     <ul>
         {% for comment in episode.comments | sort((a, b) => a.date <=> b.date)%}
             <div class="card my-3" style="width: 18rem;">
@@ -41,7 +41,7 @@
                 </div>
             </div>
         {% else %}
-            <li>Pas de commentaires</li>
+            <li>{{ 'error.noRecord'|trans }}</li>
         {% endfor %}
     </ul>
 
@@ -53,9 +53,9 @@
         {{ form_end(form) }}
     {% endif %}
 
-    <a class="btn btn-secondary" href="{{ path('episode_index') }}">back to list</a>
+    <a class="btn btn-secondary" href="{{ path('episode_index') }}">{{ 'show.back'|trans }}</a>
     {% if is_granted('ROLE_ADMIN') %}
-        <a class="btn btn-secondary" href="{{ path('episode_edit', {'slug':episode.slug}) }}">edit</a>
+        <a class="btn btn-secondary" href="{{ path('episode_edit', {'slug':episode.slug}) }}">{{ 'show.edit'|trans }}</a>
         {{ include('episode/_delete_form.html.twig') }}
     {% endif %}
 

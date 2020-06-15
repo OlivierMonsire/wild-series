@@ -8,11 +8,11 @@
     <table class="table">
         <thead>
             <tr>
-                <th>Id</th>
-                <th>Title</th>
-                <th>Number</th>
-                <th>Synopsis</th>
-                <th>actions</th>
+                <th>{{ 'list.id'|trans }}</th>
+                <th>{{ 'list.title'|trans }}</th>
+                <th>{{ 'list.number'|trans }}</th>
+                <th>{{ 'list.synopsis'|trans }}</th>
+                <th>{{ 'list.actions'|trans }}</th>
             </tr>
         </thead>
         <tbody>
@@ -23,20 +23,20 @@
                 <td>{{ episode.number }}</td>
                 <td>{{ episode.synopsis }}</td>
                 <td>
-                    <a class="btn btn-secondary" href="{{ path('episode_show', {'slug':episode.slug}) }}">show</a>
+                    <a class="btn btn-secondary" href="{{ path('episode_show', {'slug':episode.slug}) }}">{{ 'show.show'|trans }}</a>
                     {% if is_granted('ROLE_ADMIN') %}
-                        <a class="btn btn-secondary" href="{{ path('episode_edit', {'slug':episode.slug}) }}">edit</a>
+                        <a class="btn btn-secondary" href="{{ path('episode_edit', {'slug':episode.slug}) }}">{{ 'show.edit'|trans }}</a>
                     {% endif %}
 
                 </td>
             </tr>
         {% else %}
             <tr>
-                <td colspan="5">no records found</td>
+                <td colspan="5">{{ 'error.noRecord'|trans }}</td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
 
-    <a class="btn btn-secondary" href="{{ path('episode_new') }}">Create new</a>
+    <a class="btn btn-secondary" href="{{ path('episode_new') }}">{{ 'show.new'|trans }}</a>
 {% endblock %}

@@ -1,18 +1,18 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Program{% endblock %}
+{% block title %}{{ 'category.program'|trans }}{% endblock %}
 
 {% block body %}
-    <h1>Program</h1>
+    <h1>{{ 'category.program'|trans }}</h1>
 
     <table class="table">
         <tbody>
             <tr>
-                <th>Id</th>
+                <th>{{ 'list.id'|trans }}</th>
                 <td>{{ program.id }}</td>
             </tr>
             <tr>
-                <th>Title</th>
+                <th>{{ 'list.title'|trans }}</th>
 
                 <td>
                     {{ program.title }}
@@ -23,28 +23,28 @@
             </tr>
 
             <tr>
-                <th>Summary</th>
+                <th>{{ 'list.summary'|trans }}</th>
                 <td>{{ program.summary }}</td>
             </tr>
             <tr>
-                <th>Poster</th>
+                <th>{{ 'list.poster'|trans }}</th>
                 <td><img src="{{ program.poster }}" width="20%"></td>
             </tr>
         </tbody>
     </table>
 
-    <strong>Acteur :</strong>
+    <strong>{{ 'category.actors'|trans }} :</strong>
     <ul>
         {% for actor in program.actors %}
             <a class="btn btn-primary" href="{{ path('actor_show', {'slug': actor.slug}) }}">{{ actor.lastname }}, {{ actor.firstname }} </a>
         {% else %}
-            <li>Aucun acteur pour cette série</li>
+            <li>{{ 'error.noRecord'|trans }}</li>
         {% endfor %}
     </ul>
-    <a class="btn btn-secondary" href="{{ path('program_index') }}">back to list</a>
+    <a class="btn btn-secondary" href="{{ path('program_index') }}">{{ 'show.back'|trans }}</a>
 
     {% if is_granted('ROLE_ADMIN') %}
-        <a class="btn btn-secondary" href="{{ path('program_edit', {'slug': program.slug}) }}">edit</a>
+        <a class="btn btn-secondary" href="{{ path('program_edit', {'slug': program.slug}) }}">{{ 'show.edit'|trans }}</a>
         {{ include('program/_delete_form.html.twig') }}
     {% endif %}
     {% block javascripts %}

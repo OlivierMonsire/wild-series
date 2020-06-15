@@ -1,12 +1,16 @@
 {% extends "base.html.twig" %}
 {% block body %}
-    <h2>Mon Compte</h2>
-    <p>Bonjour, {{ user.username }} !</p>
+    <h2>{{ 'account.myAccount'|trans }}</h2>
+    <p>
+        {% trans with {'%username%': app.user.username} %}
+            hello_username
+        {% endtrans %} !
+    </p>
 
-    <h3>Vos favoris</h3>
+    <h3>{{ 'account.yourwatchlist'|trans }}</h3>
     {% for program in user.programs %}
     <ul>{{ program.title }}</ul>
         {% else %}
-            <p>Vous n'avez pas de séries en favoris.</p>
+            <p>{{ 'error.noRecord'|trans }}</p>
     {% endfor %}
 {% endblock %}

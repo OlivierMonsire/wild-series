@@ -44,3 +44,42 @@ $fa-font-path: "~@fortawesome/fontawesome-free/webfonts";
 @import "~@fortawesome/fontawesome-free/scss/regular";
 @import "~@fortawesome/fontawesome-free/scss/brands";
 @import "~@fortawesome/fontawesome-free/scss/v4-shims";
+
+li {
+ list-style:none !important;
+ padding:10px;
+ font-size:20px;
+ text-decoration:none;
+}
+
+.drop-menu {
+ list-style: none;
+ background-color:#F4D4D3;
+ padding:0;
+ margin:0;
+}
+
+nav ul li {
+ list-style: none;
+ line-height:44px;
+ float:left;
+}
+
+nav ul li a {
+ padding:10px;
+ font-size:20px;
+ text-decoration:none;
+}
+
+nav ul li ul { display:none; } /* Rend le menu déroulant caché par défaut */
+
+nav ul li:hover ul { /* Affiche la dropNav au survol de la souris avec la class .drop */
+ z-index:99999;
+ display:list-item !important;
+ position:absolute;
+ margin-top:5px;
+}
+
+nav ul li:hover ul li {
+ float:none;
+}

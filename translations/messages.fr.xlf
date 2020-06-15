@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file source-language="fr" target-language="fr" datatype="plaintext" original="file.ext">
+    <header>
+      <tool tool-id="symfony" tool-name="Symfony"/>
+    </header>
+    <body>
+      <trans-unit id="LPJNul_" resname="hello">
+        <source>hello</source>
+        <target>Bonjour</target>
+      </trans-unit>
+      <trans-unit id="CXmLOF4" resname="account.registration">
+        <source>account.registration</source>
+        <target>S'enregistrer</target>
+      </trans-unit>
+      <trans-unit id="E_t5j6Q" resname="account.login">
+        <source>account.login</source>
+        <target>Se connecter</target>
+      </trans-unit>
+      <trans-unit id="CDjx2ju" resname="hello_username">
+        <source>hello_username</source>
+        <target>Bonjour %username%</target>
+      </trans-unit>
+      <trans-unit id="Q7UTU9q" resname="account.logout">
+        <source>account.logout</source>
+        <target>Se déconnecter</target>
+      </trans-unit>
+      <trans-unit id="WruuyrH" resname="account.myAccount">
+        <source>account.myAccount</source>
+        <target>Mon Compte</target>
+      </trans-unit>
+      <trans-unit id="n8ysvxX" resname="account.subscribe">
+        <source>account.subscribe</source>
+        <target>S'enregistrer</target>
+      </trans-unit>
+      <trans-unit id="UxgIz22" resname="category.category">
+        <source>category.category</source>
+        <target>Categorie</target>
+      </trans-unit>
+      <trans-unit id="0aO4Urj" resname="category.program">
+        <source>category.program</source>
+        <target>Série</target>
+      </trans-unit>
+      <trans-unit id="_94oCFa" resname="category.season">
+        <source>category.season</source>
+        <target>Saison</target>
+      </trans-unit>
+      <trans-unit id="5HDbx2U" resname="category.episode">
+        <source>category.episode</source>
+        <target>Episode</target>
+      </trans-unit>
+      <trans-unit id="i7Uxc7E" resname="category.actor">
+        <source>category.actor</source>
+        <target>Acteur</target>
+      </trans-unit>
+      <trans-unit id="_bbVkKl" resname="home.welcome">
+        <source>home.welcome</source>
+        <target>Bienvenue</target>
+      </trans-unit>
+      <trans-unit id="JV7Psm5" resname="home.lastPrograms">
+        <source>home.lastPrograms</source>
+        <target>Les dernières séries</target>
+      </trans-unit>
+      <trans-unit id="cwhrqp5" resname="show.show">
+        <source>show.show</source>
+        <target>__show.show</target>
+      </trans-unit>
+      <trans-unit id="QhzW.0h" resname="show.edit">
+        <source>show.edit</source>
+        <target>__show.edit</target>
+      </trans-unit>
+      <trans-unit id="S9LAJVd" resname="error.noRecord">
+        <source>error.noRecord</source>
+        <target>__error.noRecord</target>
+      </trans-unit>
+      <trans-unit id="NfBa7lT" resname="show.new">
+        <source>show.new</source>
+        <target>__show.new</target>
+      </trans-unit>
+      <trans-unit id="oqx9fos" resname="list.id">
+        <source>list.id</source>
+        <target>__list.id</target>
+      </trans-unit>
+      <trans-unit id="RsnSDMT" resname="list.name">
+        <source>list.name</source>
+        <target>__list.name</target>
+      </trans-unit>
+      <trans-unit id="NfBwCox" resname="list.actions">
+        <source>list.actions</source>
+        <target>__list.actions</target>
+      </trans-unit>
+      <trans-unit id="c.zqcGt" resname="list.number">
+        <source>list.number</source>
+        <target>__list.number</target>
+      </trans-unit>
+      <trans-unit id="VU72Ze3" resname="list.year">
+        <source>list.year</source>
+        <target>__list.year</target>
+      </trans-unit>
+      <trans-unit id="NF08W69" resname="list.description">
+        <source>list.description</source>
+        <target>__list.description</target>
+      </trans-unit>
+      <trans-unit id="ORY7hhD" resname="category.categories">
+        <source>category.categories</source>
+        <target>__category.categories</target>
+      </trans-unit>
+      <trans-unit id="b3EnH7p" resname="list.title">
+        <source>list.title</source>
+        <target>__list.title</target>
+      </trans-unit>
+      <trans-unit id="mWisbYp" resname="list.summary">
+        <source>list.summary</source>
+        <target>__list.summary</target>
+      </trans-unit>
+      <trans-unit id="ML_DQ5_" resname="list.poster">
+        <source>list.poster</source>
+        <target>__list.poster</target>
+      </trans-unit>
+      <trans-unit id="06x3Kl_" resname="list.actors">
+        <source>list.actors</source>
+        <target>__list.actors</target>
+      </trans-unit>
+      <trans-unit id="QlklRfO" resname="list.rate">
+        <source>list.rate</source>
+        <target>__list.rate</target>
+      </trans-unit>
+      <trans-unit id="FViDZs1" resname="list.synopsis">
+        <source>list.synopsis</source>
+        <target>__list.synopsis</target>
+      </trans-unit>
+      <trans-unit id="L_RKIq3" resname="category.actors">
+        <source>category.actors</source>
+        <target>__category.actors</target>
+      </trans-unit>
+      <trans-unit id="o19nDsp" resname="show.delete">
+        <source>show.delete</source>
+        <target>__show.delete</target>
+      </trans-unit>
+      <trans-unit id="mBi7OXC" resname="category.programs">
+        <source>category.programs</source>
+        <target>__category.programs</target>
+      </trans-unit>
+      <trans-unit id="LgVq3c5" resname="category.seasons">
+        <source>category.seasons</source>
+        <target>__category.seasons</target>
+      </trans-unit>
+      <trans-unit id="sFy_Wll" resname="category.episodes">
+        <source>category.episodes</source>
+        <target>__category.episodes</target>
+      </trans-unit>
+      <trans-unit id="6GY2Pwd" resname="show.back">
+        <source>show.back</source>
+        <target>__show.back</target>
+      </trans-unit>
+      <trans-unit id="4eCCX6y" resname="category.comment">
+        <source>category.comment</source>
+        <target>__category.comment</target>
+      </trans-unit>
+      <trans-unit id="d.MHKLi" resname="account.yourwatchlist">
+        <source>account.yourwatchlist</source>
+        <target>__account.yourwatchlist</target>
+      </trans-unit>
+      <trans-unit id="JHaPu94" resname="language.language">
+        <source>language.language</source>
+        <target>__language.language</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

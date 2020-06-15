@@ -8,12 +8,12 @@
     <table class="table">
         <thead>
         <tr>
-            <th>Id</th>
-            <th>Title</th>
-            <th>Summary</th>
-            <th>Poster</th>
-            <th>actions</th>
-            <th>actors</th>
+            <th>{{ 'list.id'|trans }}</th>
+            <th>{{ 'list.title'|trans }}</th>
+            <th>{{ 'list.summary'|trans }}</th>
+            <th>{{ 'list.poster'|trans }}</th>
+            <th>{{ 'list.actions'|trans }}</th>
+            <th>{{ 'list.actors'|trans }}</th>
         </tr>
         </thead>
         <tbody>
@@ -24,9 +24,9 @@
                 <td>{{ program.summary }}</td>
                 <td><img src="{{ program.poster }}" width="80%"></td>
                 <td>
-                    <a class="btn btn-secondary" href="{{ path('program_show', {'slug': program.slug}) }}">show</a>
+                    <a class="btn btn-secondary" href="{{ path('program_show', {'slug': program.slug}) }}">{{ 'show.show'|trans }}</a>
                     {% if is_granted('ROLE_ADMIN') %}
-                        <a class="btn btn-secondary" href="{{ path('program_edit', {'slug': program.slug}) }}">edit</a>
+                        <a class="btn btn-secondary" href="{{ path('program_edit', {'slug': program.slug}) }}">{{ 'show.edit'|trans }}</a>
                     {% endif %}
                     {% if is_granted('ROLE_USER') %}
                     <i id="watchlist-{{ program.id }}"
@@ -38,24 +38,25 @@
                         {% for actor in program.actors %}
                             <li><small>{{ actor.lastname }}, {{ actor.firstname }}</small></li>
                         {% else %}
-                            <li><small>Aucun acteur référencer</small></li>
+                            <li><small>{{ 'error.noRecord'|trans }}</small></li>
                         {% endfor %}
                     </ul>
                 </td>
             </tr>
         {% else %}
             <tr>
-                <td colspan="5">no records found</td>
+                <td colspan="5">{{ 'error.noRecord'|trans }}</td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
 
-    <a class="btn btn-secondary" href="{{ path('program_new') }}">Create new</a>
+    <a class="btn btn-secondary" href="{{ path('program_new') }}">{{ 'show.new'|trans }}</a>
 
     {% block javascripts %}
         {{ encore_entry_script_tags('watchlist') }}
         {{ encore_entry_script_tags('app') }}
     {% endblock %}
+
 {% endblock %}
 

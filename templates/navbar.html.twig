@@ -1,6 +1,6 @@
 {% block navbar %}
     <nav class="navbar navbar-expand-lg navbar-light bg-primary">
-        <a class="navbar-brand" href="/">Wild Séries</a>
+        <a class="navbar-brand" href="{{ path('app_index') }}">Wild Séries</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -15,48 +15,62 @@
                     <a class="nav-link" href="/wild">Wild</a>
                 </li> #}
                 <li class="nav-item ml-3">
-                    <a class="nav-link" href="{{ path('category_index') }}">Category</a>
+                    <a class="nav-link" href="{{ path('category_index') }}"> {{ 'category.categories'|trans }}</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ path('program_index') }}">Program</a>
+                    <a class="nav-link" href="{{ path('program_index') }}"> {{ 'category.programs'|trans }}</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ path('season_index') }}">Season</a>
+                    <a class="nav-link" href="{{ path('season_index') }}"> {{ 'category.seasons'|trans }}</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ path('episode_index') }}">Episode</a>
+                    <a class="nav-link" href="{{ path('episode_index') }}"> {{ 'category.episodes'|trans }}</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ path('actor_index') }}">Actor</a>
+                    <a class="nav-link" href="{{ path('actor_index') }}"> {{ 'category.actors'|trans }} </a>
                 </li>
             </ul>
             <img class="mr-5" src="https://art.pixilart.com/ed662b18ec46a15.png" width="40px">
             {% if is_granted('ROLE_USER') %}
                 <li>
                     <div class='mr-3'>
-                        {% trans with {'%username%': app.user.email} %}
+                        {% trans with {'%username%': app.user.username} %}
                             hello_username
                         {% endtrans %} !
                     </div>
                 </li>
                 <li>
-                    <a class="mr-3" href="{{ path('account_index') }}"> Mon compte</a>
+                    <a class="mr-3" href="{{ path('account_index') }}"> {{ 'account.myAccount'|trans }} </a>
                 </li>
             {% else %}
                 <li>
-                    <a class="mr-3" href="{{ path('app_register') }}"> S'inscrire</a>
+                    <a class="mr-3" href="{{ path('app_register') }}"> {{ 'account.subscribe'|trans }} </a>
                 </li>
             {% endif %}
             {% if app.user %}
                 <li>
-                    <a href="{{ path('app_logout') }}"> {{ 'account.logout'|trans }}</a>
+                    <a href="{{ path('app_logout') }}"> {{ 'account.logOut'|trans }} </a>
                 </li>
 
             {% else %}
                 <li>
-                    <a href="{{ path('app_login') }}"> {{ 'account.login'|trans }}</a>
+                    <a href="{{ path('app_login') }}"> {{ 'account.logIn'|trans }} </a>
                 </li>
             {% endif %}
+            <div class="drop">
+                <ul>
+                    <li><a href="#">{{ 'language.language'|trans }}</a>
+                        <ul class="drop-menu">
+                            <li><a href="/fr/"><img src="https://img.icons8.com/color/48/000000/france.png"/></a></li>
+                            <li><a href="/en/"><img src="https://img.icons8.com/color/48/000000/england.png"/></a></li>
+                            <li><a href="/es/"><img src="https://img.icons8.com/color/48/000000/spain.png"/></a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
         </div>
     </nav>
+
+
+
 {% endblock %}

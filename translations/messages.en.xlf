@@ -11,11 +11,19 @@
       </trans-unit>
       <trans-unit id="CXmLOF4" resname="account.registration">
         <source>account.registration</source>
-        <target>Register</target>
+        <target>Sign In</target>
       </trans-unit>
       <trans-unit id="E_t5j6Q" resname="account.login">
         <source>account.login</source>
-        <target>Sign In</target>
+        <target>Log In</target>
+      </trans-unit>
+      <trans-unit id="CDjx2ju" resname="hello_username">
+        <source>hello_username</source>
+        <target>Hello %username%</target>
+      </trans-unit>
+      <trans-unit id="Q7UTU9q" resname="account.logout">
+        <source>account.logout</source>
+        <target>Log Out</target>
       </trans-unit>
     </body>
   </file>
