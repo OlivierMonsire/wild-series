@@ -33,7 +33,11 @@
             <img class="mr-5" src="https://art.pixilart.com/ed662b18ec46a15.png" width="40px">
             {% if is_granted('ROLE_USER') %}
                 <li>
-                    <div class='mr-3'>{{ app.user.email }}</div>
+                    <div class='mr-3'>
+                        {% trans with {'%username%': app.user.email} %}
+                            hello_username
+                        {% endtrans %} !
+                    </div>
                 </li>
                 <li>
                     <a class="mr-3" href="{{ path('account_index') }}"> Mon compte</a>
@@ -45,12 +49,12 @@
             {% endif %}
             {% if app.user %}
                 <li>
-                    <a href="{{ path('app_logout') }}"> Se déconnecter</a>
+                    <a href="{{ path('app_logout') }}"> {{ 'account.logout'|trans }}</a>
                 </li>
 
             {% else %}
                 <li>
-                    <a href="{{ path('app_login') }}"> Se connecter</a>
+                    <a href="{{ path('app_login') }}"> {{ 'account.login'|trans }}</a>
                 </li>
             {% endif %}
         </div>
