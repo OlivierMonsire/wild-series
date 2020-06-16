@@ -26,6 +26,9 @@
             <li>{{ 'error.noRecord'|trans }}</li>
         {% endfor %}
     </ul>
+    <ul>
+        <td><img src="{{vich_uploader_asset (actor, 'pictureFile', 'App\\Entity\\Actor')}}" width="20%"></td>
+    </ul>
 
     <a class="btn btn-secondary" href="{{ path('actor_index') }}">{{ 'show.back'|trans }}</a>
 

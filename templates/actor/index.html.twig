@@ -10,6 +10,7 @@
             <tr>
                 <th>{{ 'list.id'|trans }}</th>
                 <th>{{ 'list.name'|trans }}</th>
+                <th>image</th>
                 <th>{{ 'list.actions'|trans }}</th>
             </tr>
         </thead>
@@ -18,12 +19,13 @@
             <tr>
                 <td>{{ actor.id }}</td>
                 <td>{{ actor.firstname }} {{ actor.lastname }}</td>
+                <td><img src="{{vich_uploader_asset (actor, 'pictureFile', 'App\\Entity\\Actor')}}" width="20%"></td>
+
                 <td>
                     <a class="btn btn-secondary" href="{{ path('actor_show', {'slug': actor.slug}) }}">{{ 'show.show'|trans }}</a>
                     {% if is_granted('ROLE_ADMIN') %}
                         <a class="btn btn-secondary" href="{{ path('actor_edit', {'slug': actor.slug}) }}">{{ 'show.edit'|trans }}</a>
                     {% endif %}
-
                 </td>
             </tr>
         {% else %}
